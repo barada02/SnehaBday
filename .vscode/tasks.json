@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Open Celebration Page",
+			"type": "shell",
+			"command": "start chrome file:///${workspaceFolder}/celebration.html",
+			"group": "test",
+			"problemMatcher": []
+		}
+	]
+}
