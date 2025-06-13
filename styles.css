@@ -6,98 +6,99 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #8a2be2, #ff69b4);
+    background: linear-gradient(135deg, #1a0024, #4a0033, #800040, #ff1493);
+    background-size: 400% 400%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    color: #333;
+    color: #fff;
+    animation: gradientBackground 15s ease infinite;
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
     width: 100%;
     max-width: 800px;
     padding: 20px;
-}
-
-.card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    overflow: hidden;
-    text-align: center;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    animation: cardIntro 1s ease-out;
+    min-height: 100vh;
 }
 
-@keyframes cardIntro {
-    0% {
-        transform: scale(0.5) rotateY(90deg);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1) rotateY(0);
-        opacity: 1;
-    }
+.text-container {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 .birthday-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: #ff1493;
+    font-size: 5rem;
+    color: #fff;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    animation: colorChange 3s infinite alternate;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.5);
+    animation: glow 3s infinite alternate;
 }
 
-@keyframes colorChange {
-    0% { color: #ff1493; }
-    25% { color: #ff4500; }
-    50% { color: #9932cc; }
-    75% { color: #1e90ff; }
-    100% { color: #32cd32; }
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(255, 20, 147, 1), 0 0 30px rgba(255, 20, 147, 0.8), 0 0 40px rgba(255, 20, 147, 0.6); }
 }
 
 .name-text {
-    font-size: 3rem;
-    color: #8a2be2;
+    font-size: 3.5rem;
+    color: #ff69b4;
     margin-bottom: 20px;
     font-weight: 600;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .meaning {
     font-style: italic;
-    color: #666;
+    color: #fff;
     margin-bottom: 30px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    opacity: 0.9;
 }
 
 .message-box {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.4);
     border: 2px solid #ff69b4;
     border-radius: 15px;
-    padding: 20px;
+    padding: 30px;
     margin: 30px 0;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+    backdrop-filter: blur(5px);
+    max-width: 600px;
+    width: 100%;
 }
 
 .message-box p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
     line-height: 1.6;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .date {
     font-style: italic;
     text-align: right;
-    color: #888;
-    margin-top: 10px;
+    color: #ff69b4;
+    margin-top: 15px;
+    font-weight: 300;
 }
 
 /* Balloon animations */
@@ -109,15 +110,17 @@ body {
     left: 0;
     overflow: hidden;
     pointer-events: none;
+    z-index: -1;
 }
 
 .balloon {
     position: absolute;
-    width: 40px;
-    height: 50px;
+    width: 50px;
+    height: 60px;
     border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.3);
     animation: float 15s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
 }
 
 .balloon::before {
@@ -128,7 +131,7 @@ body {
     transform: translateX(-50%);
     width: 2px;
     height: 20px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .balloon-1 {
@@ -139,21 +142,21 @@ body {
 }
 
 .balloon-2 {
-    background: linear-gradient(#4169e1, #1e90ff);
+    background: linear-gradient(#9400d3, #8a2be2);
     left: 30%;
     top: -40px;
     animation-delay: 2s;
 }
 
 .balloon-3 {
-    background: linear-gradient(#ff4500, #ffa500);
+    background: linear-gradient(#ff4500, #ff69b4);
     right: 30%;
     top: -60px;
     animation-delay: 4s;
 }
 
 .balloon-4 {
-    background: linear-gradient(#32cd32, #7cfc00);
+    background: linear-gradient(#ff1493, #ff00ff);
     right: 10%;
     top: -45px;
     animation-delay: 6s;
@@ -175,127 +178,28 @@ body {
     }
 }
 
-/* Birthday Cake */
-.birthday-cake {
-    margin: 0 auto 30px;
-    width: 100px;
-    height: 100px;
-    position: relative;
-}
-
-.cake {
-    width: 100px;
-    height: 60px;
-    background: linear-gradient(#f39c12, #e67e22);
-    border-radius: 10px 10px 0 0;
-    position: relative;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.cake::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    background: #f5b041;
-    bottom: -20px;
-    border-radius: 0 0 10px 10px;
-}
-
-.cake::after {
-    content: '';
-    position: absolute;
-    width: 90%;
-    height: 15px;
-    background: #ffffff;
-    top: 15px;
-    left: 5%;
-    border-radius: 5px;
-}
-
-.candle {
-    width: 8px;
-    height: 30px;
-    background: linear-gradient(to right, #ff5e3a, #ff2a68);
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    z-index: 1;
-}
-
-.flame {
-    width: 15px;
-    height: 25px;
-    background: linear-gradient(#ffdd00, #ff9500);
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50% 50% 20% 20%;
-    animation: flicker 0.5s infinite alternate;
-    box-shadow: 0 0 20px #ffdd00, 0 0 40px #ff9500;
-}
-
-@keyframes flicker {
-    0%, 100% {
-        transform: translateX(-50%) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(-50%) scale(0.9);
-        opacity: 0.8;
-    }
-}
-
-.age-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: #ff1493;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+/* Additional animations */
+@keyframes glowing {
+    0% { box-shadow: 0 0 10px rgba(255, 20, 147, 0.7); }
+    50% { box-shadow: 0 0 20px rgba(255, 20, 147, 1), 0 0 30px rgba(255, 20, 147, 0.7); }
+    100% { box-shadow: 0 0 10px rgba(255, 20, 147, 0.7); }
 }
 
 .celebrate-btn {
-    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    background: linear-gradient(45deg, #4a0033, #ff1493);
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 1.2rem;
+    padding: 15px 30px;
+    font-size: 1.3rem;
     border-radius: 30px;
     cursor: pointer;
     margin-top: 20px;
     transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    letter-spacing: 1px;
 }
 
 .celebrate-btn::before {
@@ -305,7 +209,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #8a2be2, #9932cc);
+    background: linear-gradient(45deg, #ff1493, #800040);
     transition: all 0.4s;
     z-index: -1;
 }
@@ -316,21 +220,23 @@ body {
 
 .celebrate-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
 }
 
 .celebrate-btn:active {
     transform: translateY(0);
-    box-shadow: 0 3px 10px rgba(255, 20, 147, 0.4);
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
 }
 
 .confetti {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     background-color: #f00;
-    opacity: 0.8;
+    opacity: 0.9;
     animation: confettiFall linear forwards;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes confettiFall {
@@ -346,18 +252,18 @@ body {
 
 @media (max-width: 768px) {
     .birthday-text {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     
     .name-text {
-        font-size: 2.2rem;
-    }
-    
-    .card {
-        padding: 20px;
+        font-size: 2.5rem;
     }
     
     .message-box {
-        padding: 15px;
+        padding: 20px;
+    }
+    
+    .message-box p {
+        font-size: 1rem;
     }
 }
