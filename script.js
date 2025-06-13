@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             container.appendChild(heart);
         }
     }
-    
-    // Add keyframes for heart animation
+      // Add keyframes for heart animation
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes heartFloat {
@@ -39,11 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 opacity: 0.4;
             }
             50% {
-                transform: translateY(-100px) rotate(180deg);
+                transform: translateY(-50px) rotate(180deg);
                 opacity: 0.7;
             }
             100% {
-                transform: translateY(-200px) rotate(360deg);
+                transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }

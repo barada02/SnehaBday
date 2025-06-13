@@ -8,11 +8,13 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #1a0024, #4a0033, #800040, #ff1493);
     background-size: 400% 400%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
     color: #fff;
     animation: gradientBackground 15s ease infinite;
 }
@@ -26,13 +28,12 @@ body {
 .container {
     width: 100%;
     max-width: 800px;
-    padding: 40px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -118,6 +119,7 @@ body {
     overflow: hidden;
     pointer-events: none;
     z-index: -1;
+    max-height: 100vh;
 }
 
 .balloon {
@@ -295,6 +297,16 @@ body {
     }
     
     .container {
-        padding: 30px 15px;
+        padding: 15px;
+    }
+    
+    .message-box {
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .message-box p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 }
