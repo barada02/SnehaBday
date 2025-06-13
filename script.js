@@ -10,26 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add some initial floating hearts in the background
     createFloatingHearts();
-    
-    function createFloatingHearts() {
+      function createFloatingHearts() {
         const container = document.querySelector('.container');
         
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 20; i++) { /* Reduced number from 30 to 20 */
             const heart = document.createElement('div');
             heart.innerHTML = '❤️';
             heart.style.position = 'absolute';
-            heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+            heart.style.fontSize = `${Math.random() * 15 + 8}px`; /* Reduced size */
             heart.style.left = `${Math.random() * 100}%`;
-            heart.style.top = `${Math.random() * 100}%`;
+            heart.style.top = `${Math.random() * 80}%`; /* Limited to 80% of height */
             heart.style.opacity = '0.4';
-            heart.style.animation = `heartFloat ${Math.random() * 10 + 5}s linear infinite`;
+            heart.style.animation = `heartFloat ${Math.random() * 8 + 5}s linear infinite`; /* Reduced animation time */
             heart.style.animationDelay = `${Math.random() * 5}s`;
             heart.style.zIndex = '-1';
             
             container.appendChild(heart);
         }
-    }
-      // Add keyframes for heart animation
+    }    // Add keyframes for heart animation
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes heartFloat {
@@ -38,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 opacity: 0.4;
             }
             50% {
-                transform: translateY(-50px) rotate(180deg);
+                transform: translateY(-30px) rotate(180deg);
                 opacity: 0.7;
             }
             100% {
-                transform: translateY(-100px) rotate(360deg);
+                transform: translateY(-60px) rotate(360deg);
                 opacity: 0;
             }
         }
