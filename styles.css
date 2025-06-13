@@ -29,23 +29,25 @@ body {
 .container {
     width: 100%;
     max-width: 800px;
-    padding: 0; /* Reduced padding */
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 100vh; /* Fixed height */
-    overflow: hidden; /* Hide overflow in both directions */
+    height: 100vh;
+    overflow: hidden; /* Keep overflow hidden to prevent scrollbar */
+    z-index: 1; /* Ensure proper layering */
 }
 
 .text-container {
     text-align: center;
-    margin-top: 0; /* Reduced margin */
-    margin-bottom: 15px; /* Reduced margin */
+    margin-top: 0;
+    margin-bottom: 15px;
     position: relative;
     width: 100%;
     padding: 0 15px;
+    z-index: 5; /* Added higher z-index to appear above hearts */
 }
 
 .birthday-text {
@@ -85,14 +87,15 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     border: 2px solid #ff69b4;
     border-radius: 15px;
-    padding: 20px; /* Reduced padding */
-    margin: 10px 0; /* Reduced margin */
+    padding: 20px;
+    margin: 10px 0;
     position: relative;
     box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
     backdrop-filter: blur(5px);
     max-width: 600px;
-    width: 90%; /* Slightly reduced width */
+    width: 90%;
     box-sizing: border-box;
+    z-index: 5; /* Added higher z-index to appear above hearts */
 }
 
 .message-box p {
@@ -200,16 +203,16 @@ body {
     background: linear-gradient(45deg, #4a0033, #ff1493);
     color: white;
     border: none;
-    padding: 10px 20px; /* Reduced padding */
+    padding: 10px 20px;
     font-size: 1.2rem;
     border-radius: 30px;
     cursor: pointer;
-    margin: 15px 0 20px 0; /* Reduced margin */
+    margin: 15px 0 20px 0;
     transition: all 0.3s;
     box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 10; /* Increased z-index to ensure button is clickable above hearts */
     letter-spacing: 1px;
     max-width: 100%;
 }
