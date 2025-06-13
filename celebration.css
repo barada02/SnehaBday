@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a0024, #4a0033, #800040, #ff1493);
+    background-size: 400% 400%;
+    min-height: 100vh;
+    color: #fff;
+    animation: gradientBackground 15s ease infinite;
+    overflow-x: hidden;
+    position: relative;
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.celebration-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.lottie-animation {
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    position: relative;
+    z-index: 3;
+}
+
+.celebration-text {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.celebration-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.5);
+    animation: glow 3s infinite alternate;
+}
+
+.celebration-subtitle {
+    font-size: 2rem;
+    color: #ff69b4;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(255, 20, 147, 1), 0 0 30px rgba(255, 20, 147, 0.8), 0 0 40px rgba(255, 20, 147, 0.6); }
+}
+
+.featured-image {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+    position: relative;
+    z-index: 3;
+    animation: imageAppear 1.5s ease-out;
+}
+
+@keyframes imageAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.featured-image:hover .main-image {
+    transform: scale(1.05);
+}
+
+.birthday-message {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+    backdrop-filter: blur(5px);
+    animation: messageAppear 1s ease-out;
+    position: relative;
+    z-index: 3;
+}
+
+@keyframes messageAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.message-content p {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.message-date {
+    font-style: italic;
+    text-align: right;
+    color: #ff69b4;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+/* Confetti container */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Confetti animation */
+.confetti {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #f00;
+    opacity: 0.9;
+    animation: confettiFall linear forwards;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .celebration-title {
+        font-size: 3rem;
+    }
+    
+    .celebration-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .lottie-animation {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .message-content h2 {
+        font-size: 2rem;
+    }
+    
+    .featured-image {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .celebration-title {
+        font-size: 2.5rem;
+    }
+    
+    .lottie-animation {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .message-content p {
+        font-size: 1rem;
+    }
+}
+
+@keyframes messageAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.message-content p {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.message-date {
+    font-style: italic;
+    text-align: right;
+    color: #ff69b4;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+/* Confetti animation */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    opacity: 0.8;
+    animation: confettiFall linear forwards;
+    z-index: -1;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .celebration-title {
+        font-size: 3rem;
+    }
+    
+    .celebration-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .message-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .celebration-title {
+        font-size: 2.5rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .message-content p {
+        font-size: 1rem;
+    }
+    
+    .lottie-animation {
+        width: 200px;
+        height: 200px;
+    }
+}
