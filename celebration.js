@@ -1,22 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the Lottie animation
-    const lottieCake = lottie.loadAnimation({
-        container: document.getElementById('lottie-cake'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'Cake.json'
-    });
-    
-    // Create confetti for celebration
+    // Create confetti for celebration immediately
     createContinuousConfetti();
     
     // Play birthday song
     setTimeout(() => {
         playBirthdaySong();
-    }, 1000);
-    
-    // Function to create continuous confetti
+    }, 500);
+      // Function to create continuous confetti
     function createContinuousConfetti() {
         const colors = [
             '#ff1493', '#8a2be2', '#ff69b4', '#ff00ff', 
@@ -24,13 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
             '#c71585', '#db7093', '#ff3366', '#cc0066'
         ];
         
-        // Initial batch of confetti
-        createConfettiBatch(colors, 100);
+        // Initial batch of confetti (more confetti for a grand entrance)
+        createConfettiBatch(colors, 150);
         
-        // Create new confetti continuously
+        // Create new confetti continuously every 1.5 seconds
         setInterval(() => {
-            createConfettiBatch(colors, 20);
-        }, 2000);
+            createConfettiBatch(colors, 30);
+        }, 1500);
     }
     
     function createConfettiBatch(colors, count) {
